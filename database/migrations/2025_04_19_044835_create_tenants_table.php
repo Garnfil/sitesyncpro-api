@@ -22,18 +22,6 @@ return new class extends Migration {
             $table->timestamps();
             $table->softDeletes();
         });
-
-        $tenant = Tenant::create([
-            'name' => 'Acme Corp',
-            'slug' => 'acme',
-            'is_active' => true,
-            // For separate DB:
-            'database' => [
-                'database' => 'acme_corp',
-                'username' => 'acme_user',
-                'password' => 'secure_password',
-            ]
-        ]);
     }
 
     /**

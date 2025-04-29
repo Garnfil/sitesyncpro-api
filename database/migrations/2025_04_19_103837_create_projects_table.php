@@ -13,8 +13,9 @@ return new class extends Migration {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('tenant_id')->nullable()->constrained('tenants')->cascadeOnDelete();
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('manager_id'); // FK to users
+            $table->unsignedBigInteger('manager_id');
             $table->enum('status', ['in_progress', 'completed', 'cancelled', 'pending']);
             $table->timestamps();
 
